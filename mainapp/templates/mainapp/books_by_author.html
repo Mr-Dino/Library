@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+<link type="text/css" href="{% static 'mainapp/css/styles.css' %}" rel='stylesheet'>
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+<h1>Автор {{ title }}</h1>
+<div class="card-group">
+    <div class="row">
+    {% for book in books %}
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ book.image.url }}" class="img-fluid rounded-start" alt="{{book.title }}">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Название:  {{ book.title }}</h5>
+                <h6 class="card-title">Автор: {{ book.author }}</h6>
+                <p class="card-text"><small class="text-muted">Дата создания: {{ book.issue_date }}</small></p>
+                <p class="card-text">{{book.description|linebreaks|truncatewords:50 }}</p>
+                <a href="{{ book.get_absolute_url }}">Узнать подробнее</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

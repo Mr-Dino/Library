@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+
+{% block content %}
+<div class="card mb-3">
+    <div class="card-header">
+        <h3>Название: {{ book.title }}</h3>
+
+    </div>
+    <div class="card-body">
+            <h5 class="card-title">Автор: <a href="{{ book.author.get_absolute_url }}">{{ book.author }}</a></h5>
+            <h6 class="card-title">Дата создания: {{ book.issue_date }}</h6>
+              <h6 class="card-title">Жанр:
+                {% for g in book.genre.all %}
+                    {{ g.title }}
+                {% endfor %}
+                </h6>6>
+
+            {% if book.image %}
+                <img src="{{ book.image.url }}" class="img-fluid rounded-start" alt="{{book.title }}"
+                width="350" height="235" align="left" class="float-left mr-3">
+            {% endif %}
+            <p class="card-text">{{ book.description|safe|linebreaks }}</p>
+    </div>
+
+    <div class="cart-footer text-muted">
+        {{ news_item.created_at|date:"YY-m-d H:i" }}
+    </div>
+</div>
+{% endblock %}

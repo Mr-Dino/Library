@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% endblock %}
+{% block content %}
+<div class="row">
+    {% for author in authors %}
+        <div class="card" style="max-width: 350px;">
+            {% if author.image %}
+            <img src="{{ author.image.url }}" class="card-img-top" alt="{{ author.surname }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ author.first_name }}</h5>
+                <h5 class="card-title">{{ author.surname }}</h5>
+                <h5 class="card-title">{{ author.patronymic }}</h5>
+                <p class="card-text">{{ author.date_of_birth }}</p>
+                <a href="{{ author.get_absolute_url }}" class="btn btn-primary">Посмотреть произведения автора</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+{% for error in form.non_field_errors %}
+    <span class="error-message">{{ error }}</span>
+{% endfor %}
+<h1>Добавление книги</h1>
+<form method="post" class="user-update-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary btn-block">Добавить книгу</button>
+</form>
+{% endblock %}

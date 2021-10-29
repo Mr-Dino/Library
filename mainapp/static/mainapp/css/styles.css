@@ -1,0 +1,33 @@
+#hello {
+    color: #7b68ee;
+    font-size: 150%;
+    margin-left:300px;
+}
+#ii {
+    font-size:150%;
+}
+#ia {
+    font-size:150%;
+}
+#io {
+    font-size:150%;
+}
+#iy {
+    font-size:150%;
+}
+#sidebar {
+		height:100%;
+		width:230px;
+		position: fixed;
+		z-index:1;
+		top:30;
+		left:1620px;
+		background-color:#66ffcc;
+		overflow-x: :hidden;
+		padding-top:20px;
+}
+#find-button {
+    margin-top: 15px;
+    width: 70px;
+    height:40px;
+}
