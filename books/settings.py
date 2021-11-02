@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_filters',
     'mainapp.apps.MainappConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

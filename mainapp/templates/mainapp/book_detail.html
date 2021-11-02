@@ -16,7 +16,7 @@
                 {% for g in book.genre.all %}
                     {{ g.title }}
                 {% endfor %}
-                </h6>6>
+                </h6>
 
             {% if book.image %}
                 <img src="{{ book.image.url }}" class="img-fluid rounded-start" alt="{{book.title }}"

@@ -19,6 +19,11 @@
               <div class="card-body">
                 <h5 class="card-title">Название:  {{ book.title }}</h5>
                 <h6 class="card-title">Автор: {{ book.author }}</h6>
+                  <h6 class="card-title">Жанр:
+                    {% for g in book.genre.all %}
+                        {{ g.title }}
+                    {% endfor %}
+                  </h6>
                 <p class="card-text"><small class="text-muted">Дата создания: {{ book.issue_date }}</small></p>
                 <p class="card-text">{{book.description|linebreaks|truncatewords:50 }}</p>
                 <a href="{{ book.get_absolute_url }}">Узнать подробнее</a>
